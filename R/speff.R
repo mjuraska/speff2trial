@@ -1,9 +1,15 @@
+#' @import stats
+NULL
+#' @import leaps
+NULL
+#' @import survival
+NULL
+
 speff <- function(formula, endpoint=c("quantitative", "dichotomous"), data, 
 	postrandom=NULL, force.in=NULL, nvmax=9, method=c("exhaustive", "forward", 
 	"backward"), optimal=c("cp", "bic", "rsq"), trt.id, conf.level=0.95, 
 	missCtrl=NULL, missTreat=NULL, endCtrlPre=NULL, endTreatPre=NULL, 
 	endCtrlPost=NULL, endTreatPost=NULL){
-	require(leaps, quietly=TRUE)
 	options(na.action=na.pass)
 	if (missing(trt.id)) stop("Treatment indicator in 'trt.id' is missing.")
 	endpoint <- match.arg(endpoint)
